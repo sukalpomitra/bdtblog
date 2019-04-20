@@ -11,7 +11,19 @@ public class ServiceBdt {
 
     public GreetingMessage getGreetingMessage() {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForEntity(thirdPartyService + "/third/party/message",
-                GreetingMessage.class).getBody();
+        return translateMessage(restTemplate.getForEntity(thirdPartyService + "/third/party/message",
+                GreetingMessage.class).getBody());
+    }
+
+    private GreetingMessage translateMessage(final GreetingMessage greetingMessage) {
+        String translatedMessage;
+        if (greetingMessage.getMessage().equals("Hello World")) {
+            translatedMessage = "Hello World";
+        } else {
+            translatedMessage = "Goodbye World";
+        }
+        GreetingMessage response = new GreetingMessage();
+        response.setMessage(translatedMessage);
+        return response;
     }
 }
