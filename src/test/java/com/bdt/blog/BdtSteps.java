@@ -43,7 +43,8 @@ public class BdtSteps {
         try {
             RestTemplate restTemplate = new RestTemplate();
             ResponseEntity<GreetingMessage> response = restTemplate
-                    .getForEntity("http://localhost:" + staticRandomServerPort + "/message", GreetingMessage.class);
+                    .getForEntity("http://localhost:" + staticRandomServerPort + "/bdt/v1//message",
+                            GreetingMessage.class);
             assertThat(response.getStatusCode(), equalTo(HttpStatus.OK));
             assertThat(response.getBody().getMessage(), equalTo("Hello World"));
         } catch (HttpClientErrorException ex) {
