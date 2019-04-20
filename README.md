@@ -1,0 +1,1 @@
+This repository holds code that shows how cucumber-junit can be integrated with Spring Boot and also to show how to test a private method using JUnit. This is an accessory to my blog titled "BUSINESS DRIVEN TESTING FOR SPRING BOOT APPLICATIONS".
